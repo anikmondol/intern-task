@@ -2,16 +2,13 @@
 <html lang="en" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
 
 
-<!-- Mirrored from myrathemes.com/dashtrap/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Mar 2024 03:40:24 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Dashtrap - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>@yield('title') | Dashtrap - Responsive Bootstrap 5 Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Myra Studio" name="author" />
+
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('dashboard') }}/assets/images/favicon.ico">
@@ -20,8 +17,44 @@
 
     <!-- App css -->
     <link href="{{ asset('dashboard') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
+    {{-- custom css --}}
+
+    <!-- third party css -->
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Plugins css -->
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    {{-- <link href="{{ asset('dashboard') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css"> --}}
+    <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
+
+
+
+    @stack('css')
+
 </head>
 
 <body>
@@ -34,7 +67,7 @@
             <!-- Brand Logo -->
             <div class="logo-box">
                 <!-- Brand Logo Light -->
-                <a class='logo-light' href='index.html'>
+                <a class='logo-light' href='#'>
                     <img src="{{ asset('dashboard') }}/assets/images/logo-light.png" alt="logo" class="logo-lg"
                         height="28">
                     <img src="{{ asset('dashboard') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm"
@@ -42,7 +75,7 @@
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a class='logo-dark' href='index.html'>
+                <a class='logo-dark' href='#'>
                     <img src="{{ asset('dashboard') }}/assets/images/logo-dark.png" alt="dark logo" class="logo-lg"
                         height="28">
                     <img src="{{ asset('dashboard') }}/assets/images/logo-sm.png" alt="small logo" class="logo-sm"
@@ -56,451 +89,116 @@
 
                     <li class="menu-title">Menu</li>
 
-                    <li class="menu-item">
-                        <a class='menu-link waves-effect waves-light' href='index.html'>
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='#'>
                             <span class="menu-icon"><i class="bx bx-home-smile"></i></span>
                             <span class="menu-text"> Dashboards </span>
                             <span class="badge bg-primary rounded ms-auto">01</span>
                         </a>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-title">Custom</li>
 
-                    <li class="menu-item">
-                        <a class='menu-link waves-effect waves-light' href='apps-calendar.html'>
-                            <span class="menu-icon"><i class="bx bx-calendar"></i></span>
-                            <span class="menu-text"> Calendar </span>
+                    {{-- item --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('vehicle.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-bus-multiple"></i></span>
+                            <span class="menu-text"> vehicles </span>
                         </a>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-file"></i></span>
-                            <span class="menu-text"> Extra Pages </span>
-                            <span class="menu-arrow"></span>
+                    {{-- item --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('item.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-book-plus-outline"></i></span>
+                            <span class="menu-text"> New Item </span>
                         </a>
-                        <div class="collapse" id="menuExpages">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-starter.html'>
-                                        <span class="menu-text">Starter</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-invoice.html'>
-                                        <span class="menu-text">Invoice</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-login.html'>
-                                        <span class="menu-text">Log In</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-register.html'>
-                                        <span class="menu-text">Register</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-recoverpw.html'>
-                                        <span class="menu-text">Recover Password</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-lock-screen.html'>
-                                        <span class="menu-text">Lock Screen</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-404.html'>
-                                        <span class="menu-text">Error 404</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-500.html'>
-                                        <span class="menu-text">Error 500</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuLayouts" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-layout"></i></span>
-                            <span class="menu-text"> Layouts </span>
-                            <span class="badge bg-blue ms-auto">New</span>
+                    {{-- brand --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('brand.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-alpha-b-box-outline"></i></span>
+                            <span class="menu-text"> Brand </span>
                         </a>
-                        <div class="collapse" id="menuLayouts">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='layout-horizontal.html'>
-                                        <span class="menu-text">Horizontal</span>
-                                    </a>
-                                </li>
+                    </li> --}}
 
-                                <li class="menu-item">
-                                    <a class='menu-link' href='layout-sidenav-light.html'>
-                                        <span class="menu-text">Sidenav Light</span>
-                                    </a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a class='menu-link' href='layout-sidenav-dark.html'>
-                                        <span class="menu-text">Sidenav Dark</span>
-                                    </a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a class='menu-link' href='layout-topbar-dark.html'>
-                                        <span class="menu-text">Topbar Dark</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="menu-title">Components</li>
-
-                    <li class="menu-item">
-                        <a href="#menuComponentsui" data-bs-toggle="collapse"
-                            class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-cookie"></i></span>
-                            <span class="menu-text"> UI Elements </span>
-                            <span class="menu-arrow"></span>
+                    {{-- category --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('category.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-alpha-c-box-outline"></i></span>
+                            <span class="menu-text"> Category </span>
                         </a>
-                        <div class="collapse" id="menuComponentsui">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-alerts.html'>
-                                        <span class="menu-text">Alerts</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-buttons.html'>
-                                        <span class="menu-text">Buttons</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-cards.html'>
-                                        <span class="menu-text">Cards</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-carousel.html'>
-                                        <span class="menu-text">Carousel</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-dropdowns.html'>
-                                        <span class="menu-text">Dropdowns</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-video.html'>
-                                        <span class="menu-text">Embed Video</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-general.html'>
-                                        <span class="menu-text">General UI</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-grid.html'>
-                                        <span class="menu-text">Grid</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-images.html'>
-                                        <span class="menu-text">Images</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-list-group.html'>
-                                        <span class="menu-text">List Group</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-modals.html'>
-                                        <span class="menu-text">Modals</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-offcanvas.html'>
-                                        <span class="menu-text">Offcanvas</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-placeholders.html'>
-                                        <span class="menu-text">Placeholders</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-progress.html'>
-                                        <span class="menu-text">Progress</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-spinners.html'>
-                                        <span class="menu-text">Spinners</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-tabs-accordions.html'>
-                                        <span class="menu-text">Tabs & Accordions</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-tooltips-popovers.html'>
-                                        <span class="menu-text">Tooltips & Popovers</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='ui-typography.html'>
-                                        <span class="menu-text">Typography</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuExtendedui" data-bs-toggle="collapse"
-                            class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-briefcase-alt-2"></i></span>
-                            <span class="menu-text"> Components </span>
-                            <span class="badge bg-info ms-auto">Hot</span>
+                    {{-- store --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('store.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-cart-variant"></i></span>
+                            <span class="menu-text"> Store </span>
                         </a>
-                        <div class="collapse" id="menuExtendedui">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='components-range-slider.html'>
-                                        <span class="menu-text">Range Slider</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='components-sweet-alert.html'>
-                                        <span class="menu-text">Sweet Alert</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='components-loading-buttons.html'>
-                                        <span class="menu-text">Loading Buttons</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuIcons" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-aperture"></i></span>
-                            <span class="menu-text"> Icons </span>
-                            <span class="menu-arrow"></span>
+                    {{-- maintenance --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('maintenance.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-wrench-outline"></i></span>
+                            <span class="menu-text"> Maintenance </span>
                         </a>
-                        <div class="collapse" id="menuIcons">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='icons-feather.html'>
-                                        <span class="menu-text">Feather Icons</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='icons-mdi.html'>
-                                        <span class="menu-text">Material Design Icons</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='icons-dripicons.html'>
-                                        <span class="menu-text">Dripicons</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuForms" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bxs-eraser"></i></span>
-                            <span class="menu-text"> Forms </span>
-                            <span class="menu-arrow"></span>
+                    {{-- Received  --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('received.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-email-send-outline"></i></span>
+                            <span class="menu-text"> Received </span>
                         </a>
-                        <div class="collapse" id="menuForms">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='forms-elements.html'>
-                                        <span class="menu-text">General Elements</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='forms-advanced.html'>
-                                        <span class="menu-text">Advanced</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='forms-validation.html'>
-                                        <span class="menu-text">Validation</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='forms-quilljs.html'>
-                                        <span class="menu-text">Editor</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='forms-file-uploads.html'>
-                                        <span class="menu-text">File Uploads</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuTables" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-table"></i></span>
-                            <span class="menu-text"> Tables </span>
-                            <span class="menu-arrow"></span>
+                    {{-- damage  --}}
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('damage.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-book-cancel"></i></span>
+                            <span class="menu-text"> Damage </span>
                         </a>
-                        <div class="collapse" id="menuTables">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='tables-basic.html'>
-                                        <span class="menu-text">Basic Tables</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='tables-datatables.html'>
-                                        <span class="menu-text">Data Tables</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuCharts" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-doughnut-chart"></i></span>
-                            <span class="menu-text"> Charts </span>
-                            <span class="menu-arrow"></span>
+
+                    {{--
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
+                        <li class="menu-title">Management User</li>
+                        <li class="menu-item">
+                            <a href="#menuRole" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
+                                <span class="menu-icon"><i class="bx bx-file"></i></span>
+                                <span class="menu-text"> Role & Permission </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="menuRole">
+                                <ul class="sub-menu">
+                                    <li class="menu-item">
+                                        <a class='menu-link' href='{{ route('management.index') }}'>
+                                            <span class="menu-text">Assign Role & Register</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class='menu-link' href='{{ route('management.role.index') }}'>
+                                            <span class="menu-text">Assign Existing Users Role</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endif --}}
+
+                    {{-- <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href="{{ route('home.profile') }}">
+                            <span class="menu-icon"><i class="fa-regular fa-face-smile"></i></span>
+                            <span class="menu-text"> Profile </span>
                         </a>
-                        <div class="collapse" id="menuCharts">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='charts-apex.html'>
-                                        <span class="menu-text">Apex Charts</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='charts-morris.html'>
-                                        <span class="menu-text">Morris Charts</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='charts-chartjs.html'>
-                                        <span class="menu-text">Chartjs Charts</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="menu-item">
-                        <a href="#menuMaps" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-map-alt"></i></span>
-                            <span class="menu-text"> Maps </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse" id="menuMaps">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a class='menu-link' href='maps-google.html'>
-                                        <span class="menu-text">Google Maps</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='maps-vector.html'>
-                                        <span class="menu-text">Vector Maps</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="menu-item">
-                        <a href="#menuMultilevel" data-bs-toggle="collapse"
-                            class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="bx bx-share-alt"></i></span>
-                            <span class="menu-text"> Multi Level </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse" id="menuMultilevel">
-                            <ul class="sub-menu">
-                                <li class="menu-item">
-                                    <a href="#menuMultilevel2" data-bs-toggle="collapse"
-                                        class="menu-link waves-effect waves-light">
-                                        <span class="menu-text"> Second Level </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="menuMultilevel2">
-                                        <ul class="sub-menu">
-                                            <li class="menu-item">
-                                                <a href="javascript: void(0);" class="menu-link">
-                                                    <span class="menu-text">Item 1</span>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="javascript: void(0);" class="menu-link">
-                                                    <span class="menu-text">Item 2</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a href="#menuMultilevel3" data-bs-toggle="collapse"
-                                        class="menu-link waves-effect waves-light">
-                                        <span class="menu-text">Third Level</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="menuMultilevel3">
-                                        <ul class="sub-menu">
-                                            <li class="menu-item">
-                                                <a href="javascript: void(0);" class="menu-link">
-                                                    <span class="menu-text">Item 1</span>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="#menuMultilevel4" data-bs-toggle="collapse"
-                                                    class="menu-link waves-effect waves-light">
-                                                    <span class="menu-text">Item 2</span>
-                                                    <span class="menu-arrow"></span>
-                                                </a>
-                                                <div class="collapse" id="menuMultilevel4">
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item">
-                                                            <a href="javascript: void(0);" class="menu-link">
-                                                                <span class="menu-text">Item 1</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="javascript: void(0);" class="menu-link">
-                                                                <span class="menu-text">Item 2</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
             </div>
+
         </div>
 
 
@@ -519,7 +217,7 @@
                         <!-- Brand Logo -->
                         <div class="logo-box">
                             <!-- Brand Logo Light -->
-                            <a class='logo-light' href='index.html'>
+                            <a class='logo-light' href='#'>
                                 <img src="{{ asset('dashboard') }}/assets/images/logo-light.png" alt="logo"
                                     class="logo-lg" height="22">
                                 <img src="{{ asset('dashboard') }}/assets/images/logo-sm.png" alt="small logo"
@@ -527,7 +225,7 @@
                             </a>
 
                             <!-- Brand Logo Dark -->
-                            <a class='logo-dark' href='index.html'>
+                            <a class='logo-dark' href='#'>
                                 <img src="{{ asset('dashboard') }}/assets/images/logo-dark.png" alt="dark logo"
                                     class="logo-lg" height="22">
                                 <img src="{{ asset('dashboard') }}/assets/images/logo-sm.png" alt="small logo"
@@ -769,11 +467,16 @@
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                                 data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                 aria-expanded="false">
-                                <img src="{{ asset('dashboard') }}/assets/images/users/avatar-4.jpg" alt="user-image"
-                                    class="rounded-circle">
-                                <span class="ms-1 d-none d-md-inline-block">
-                                    Jamie D. <i class="mdi mdi-chevron-down"></i>
-                                </span>
+                                {{-- @if (auth()->user()->image == 'default.webp')
+                                    <img src="{{ asset('uploads/default') }}/{{ auth()->user()->image }}"
+                                        alt="user-image" class="rounded-circle">
+                                @else
+                                    <img src="{{ asset('uploads/profile') }}/{{ auth()->user()->image }}"
+                                        alt="user-image" class="rounded-circle">
+                                @endif --}}
+                                {{-- <span class="ms-1 d-none d-md-inline-block">
+                                    {{ auth()->user()->name }} . <i class="mdi mdi-chevron-down"></i>
+                                </span> --}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                                 <!-- item-->
@@ -802,10 +505,13 @@
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
-                                <a class='dropdown-item notify-item' href='pages-login.html'>
-                                    <i class="fe-log-out"></i>
-                                    <span>Logout</span>
-                                </a>
+                                <form action="#" method="POST">
+                                    @csrf
+                                    <button class='dropdown-item notify-item' type="submit">
+                                        <i class="fe-log-out"></i>
+                                        <span>Logout</span>
+                                    </button>
+                                </form>
 
                             </div>
                         </li>
@@ -815,391 +521,12 @@
             </div>
             <!-- ========== Topbar End ========== -->
 
-            <div class="px-3">
+            <div class="px-3 mt-4">
 
                 <!-- Start Content-->
                 <div class="container-fluid">
 
-                    <!-- start page title -->
-                    <div class="py-3 py-lg-4">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="page-title mb-0">Dashboard</h4>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="d-none d-lg-block">
-                                    <ol class="breadcrumb m-0 float-end">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashtrap</a></li>
-                                        <li class="breadcrumb-item active">Dashboard</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
-
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Daily</span>
-                                        <h5 class="card-title mb-0">Cost per Unit</h5>
-                                    </div>
-                                    <div class="row d-flex align-items-center mb-4">
-                                        <div class="col-8">
-                                            <h2 class="d-flex align-items-center mb-0">
-                                                $17.21
-                                            </h2>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <span class="text-muted">12.5% <i
-                                                    class="mdi mdi-arrow-up text-success"></i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress shadow-sm" style="height: 5px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 57%;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end card body-->
-                            </div><!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Per Week</span>
-                                        <h5 class="card-title mb-0">Market Revenue</h5>
-                                    </div>
-                                    <div class="row d-flex align-items-center mb-4">
-                                        <div class="col-8">
-                                            <h2 class="d-flex align-items-center mb-0">
-                                                $1875.54
-                                            </h2>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <span class="text-muted">18.71% <i
-                                                    class="mdi mdi-arrow-down text-danger"></i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress shadow-sm" style="height: 5px;">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 57%;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end card body-->
-                            </div><!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Per Month</span>
-                                        <h5 class="card-title mb-0">Expenses</h5>
-                                    </div>
-                                    <div class="row d-flex align-items-center mb-4">
-                                        <div class="col-8">
-                                            <h2 class="d-flex align-items-center mb-0">
-                                                $784.62
-                                            </h2>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <span class="text-muted">57% <i
-                                                    class="mdi mdi-arrow-up text-success"></i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress shadow-sm" style="height: 5px;">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 57%;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end card body-->
-                            </div>
-                            <!--end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">All Time</span>
-                                        <h5 class="card-title mb-0">Daily Visits</h5>
-                                    </div>
-                                    <div class="row d-flex align-items-center mb-4">
-                                        <div class="col-8">
-                                            <h2 class="d-flex align-items-center mb-0">
-                                                1,15,187
-                                            </h2>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <span class="text-muted">17.8% <i
-                                                    class="mdi mdi-arrow-down text-danger"></i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress shadow-sm" style="height: 5px;">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 57%;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end card body-->
-                            </div><!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row-->
-
-
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Sales Analytics</h4>
-                                    <p class="card-subtitle mb-4">From date of 1st Jan 2020 to continue</p>
-                                    <div id="morris-bar-example" class="morris-chart"></div>
-                                </div> <!--end card body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Stock</h4>
-                                    <p class="card-subtitle mb-4">Recent Stock</p>
-
-                                    <div class="text-center">
-                                        <input data-plugin="knob" data-width="165" data-height="165"
-                                            data-linecap=round data-fgColor="#7a08c2" value="95" data-skin="tron"
-                                            data-angleOffset="180" data-readOnly=true data-thickness=".15" />
-                                        <h5 class="text-muted mt-3">Total sales made today</h5>
-
-
-                                        <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading
-                                            elements are
-                                            designed to work best in the meat of your page content.</p>
-
-                                        <div class="row mt-3">
-                                            <div class="col-6">
-                                                <p class="text-muted font-15 mb-1 text-truncate">Target</p>
-                                                <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
-
-                                            </div>
-                                            <div class="col-6">
-                                                <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
-                                                <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div> <!--end card body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-
-                        <div class="col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h4 class="card-title">Account Transactions</h4>
-                                            <p class="card-subtitle mb-4">Transaction period from 21 July to
-                                                25 Aug</p>
-                                            <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
-                                            </h3>
-                                        </div>
-                                    </div> <!-- end row -->
-
-                                    <div id="sparkline1" class="mt-3"></div>
-                                </div>
-                                <!--end card body-->
-                            </div>
-                            <!--end card-->
-
-                        </div><!-- end col -->
-                    </div>
-                    <!--end row-->
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end position-relative">
-                                        <a href="#" class="dropdown-toggle h4 text-muted"
-                                            data-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#" class="dropdown-item">Action</a></li>
-                                            <li><a href="#" class="dropdown-item">Another action</a></li>
-                                            <li><a href="#" class="dropdown-item">Something else here</a></li>
-                                            <li class="dropdown-divider"></li>
-                                            <li><a href="#" class="dropdown-item">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="card-title d-inline-block">Total Revenue</h4>
-
-                                    <div id="morris-line-example" class="morris-chart" style="height: 290px;"></div>
-
-                                    <div class="row text-center mt-4">
-                                        <div class="col-6">
-                                            <h4>$7841.12</h4>
-                                            <p class="text-muted mb-0">Total Revenue</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <h4>17</h4>
-                                            <p class="text-muted mb-0">Open Compaign</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--end card body-->
-
-                            </div>
-                            <!--end card-->
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <h4 class="card-title">Top 5 Customers</h4>
-                                    <p class="card-subtitle mb-4 font-size-13">Transaction period from 21 July to 25
-                                        Aug
-                                    </p>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-centered table-striped table-nowrap mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Customer</th>
-                                                    <th>Phone</th>
-                                                    <th>Email</th>
-                                                    <th>Location</th>
-                                                    <th>Create Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="table-user">
-                                                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-4.jpg"
-                                                            alt="table-user" class="mr-2 avatar-xs rounded-circle">
-                                                        <a href="javascript:void(0);"
-                                                            class="text-body font-weight-semibold">Paul J. Friend</a>
-                                                    </td>
-                                                    <td>
-                                                        937-330-1634
-                                                    </td>
-                                                    <td>
-                                                        pauljfrnd@jourrapide.com
-                                                    </td>
-                                                    <td>
-                                                        New York
-                                                    </td>
-                                                    <td>
-                                                        07/07/2018
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="table-user">
-                                                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-3.jpg"
-                                                            alt="table-user" class="mr-2 avatar-xs rounded-circle">
-                                                        <a href="javascript:void(0);"
-                                                            class="text-body font-weight-semibold">Bryan J. Luellen</a>
-                                                    </td>
-                                                    <td>
-                                                        215-302-3376
-                                                    </td>
-                                                    <td>
-                                                        bryuellen@dayrep.com
-                                                    </td>
-                                                    <td>
-                                                        New York
-                                                    </td>
-                                                    <td>
-                                                        09/12/2018
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="table-user">
-                                                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-8.jpg"
-                                                            alt="table-user" class="mr-2 avatar-xs rounded-circle">
-                                                        <a href="javascript:void(0);"
-                                                            class="text-body font-weight-semibold">Kathryn S.
-                                                            Collier</a>
-                                                    </td>
-                                                    <td>
-                                                        828-216-2190
-                                                    </td>
-                                                    <td>
-                                                        collier@jourrapide.com
-                                                    </td>
-                                                    <td>
-                                                        Canada
-                                                    </td>
-                                                    <td>
-                                                        06/30/2018
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="table-user">
-                                                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-1.jpg"
-                                                            alt="table-user" class="mr-2 avatar-xs rounded-circle">
-                                                        <a href="javascript:void(0);"
-                                                            class="text-body font-weight-semibold">Timothy Kauper</a>
-                                                    </td>
-                                                    <td>
-                                                        (216) 75 612 706
-                                                    </td>
-                                                    <td>
-                                                        thykauper@rhyta.com
-                                                    </td>
-                                                    <td>
-                                                        Denmark
-                                                    </td>
-                                                    <td>
-                                                        09/08/2018
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="table-user">
-                                                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-5.jpg"
-                                                            alt="table-user" class="mr-2 avatar-xs rounded-circle">
-                                                        <a href="javascript:void(0);"
-                                                            class="text-body font-weight-semibold">Zara Raws</a>
-                                                    </td>
-                                                    <td>
-                                                        (02) 75 150 655
-                                                    </td>
-                                                    <td>
-                                                        austin@dayrep.com
-                                                    </td>
-                                                    <td>
-                                                        Germany
-                                                    </td>
-                                                    <td>
-                                                        07/15/2018
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                                <!--end card body-->
-
-                            </div>
-                            <!--end card-->
-                        </div>
-                        <!--end col-->
-
-                    </div>
-                    <!--end row-->
+                    @yield('content')
 
                 </div> <!-- container -->
 
@@ -1218,8 +545,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-none d-md-flex gap-4 align-item-center justify-content-md-end">
-                                <p class="mb-0">Design & Develop by <a href="https://myrathemes.com/"
-                                        target="_blank">MyraStudio</a> </p>
+                                <p class="mb-0">Design & Develop by <a href="https://github.com/anikmondol"
+                                        target="_blank">Anik Mondal</a> </p>
                             </div>
                         </div>
                     </div>
@@ -1237,6 +564,7 @@
     <!-- END wrapper -->
 
     <!-- App js -->
+
     <script src="{{ asset('dashboard') }}/assets/js/vendor.min.js"></script>
     <script src="{{ asset('dashboard') }}/assets/js/app.js"></script>
 
@@ -1252,10 +580,47 @@
 
     <!-- Dashboard init-->
     <script src="{{ asset('dashboard') }}/assets/js/pages/dashboard.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+
+
+    <!-- third party js -->
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js">
+    </script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- third party js ends -->
+
+    <!-- Datatables js -->
+    <script src="{{ asset('dashboard') }}/assets/js/pages/datatables.js"></script>
+
+    <!-- Plugins js -->
+    <script src="{{ asset('dashboard') }}/assets/libs/quill/quill.min.js"></script>
+
+
+    <!-- Demo js-->
+    <script src="{{ asset('dashboard') }}/assets/js/pages/form-quilljs.js"></script>
+
+
+    <!-- jQuery -->
+
+
+
+
+    @yield('script')
 </body>
 
 
-<!-- Mirrored from myrathemes.com/dashtrap/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Mar 2024 03:40:30 GMT -->
+
 
 </html>

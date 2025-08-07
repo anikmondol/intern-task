@@ -107,6 +107,23 @@
     <script src="{{ asset('dashboard') }}/assets/js/vendor.min.js"></script>
     <script src="{{ asset('dashboard') }}/assets/js/app.js"></script>
 
+
+     <script>
+            Toastify({
+                text: "{{ session('error') }}",
+                duration: 5000,
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        </script>
+
 </body>
 
 
