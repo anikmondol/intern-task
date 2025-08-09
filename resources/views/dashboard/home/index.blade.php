@@ -24,138 +24,29 @@
 
 @section('content')
     <div class="container">
-        <!-- Last row with centered cards -->
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">NEW ITEM</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">BRAND</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card shadow-xl border-0 mb-4 text-center">
-                    <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
+        <div class="row align-items-center justify-content-center">
+            @if (session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            <div class="col-6 col-lg-4 col-xl-4">
+                <!-- Simple card -->
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="{{ asset('dashboard') }}/assets/images/media/img-1.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content. With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="{{ route('profile.create_edited') }}"
+                            class="btn btn-primary waves-effect waves-light">Create</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
 
     </div>
 @endsection

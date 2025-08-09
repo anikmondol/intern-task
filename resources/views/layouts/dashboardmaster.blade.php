@@ -89,6 +89,19 @@
 
                     <li class="menu-title">Menu</li>
 
+                    <li class="menu-item">
+                        <form id="logout-form" action="{{ route('customer.logout') }}" method="POST"
+                            style="display: none;">
+                            @csrf
+                        </form>
+                        <a class='menu-link waves-effect waves-light' href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="menu-icon"><i class="mdi mdi-logout"></i></span>
+                            <span class="menu-text"> Logout </span>
+                        </a>
+                    </li>
+
+
                     {{-- <li class="menu-item">
                         <a class='menu-link waves-effect waves-light' href='#'>
                             <span class="menu-icon"><i class="bx bx-home-smile"></i></span>
@@ -540,7 +553,7 @@
                             <div>
                                 <script>
                                     document.write(new Date().getFullYear())
-                                </script> © Dashtrap
+                                </script> © Anik
                             </div>
                         </div>
                         <div class="col-md-6">
