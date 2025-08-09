@@ -25,25 +25,50 @@
 @section('content')
     <div class="container">
 
-        <div class="row align-items-center justify-content-center">
-            @if (session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-            <div class="col-6 col-lg-4 col-xl-4">
-                <!-- Simple card -->
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="{{ asset('dashboard') }}/assets/images/media/img-1.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content. With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="{{ route('profile.create_edited') }}"
-                            class="btn btn-primary waves-effect waves-light">Create</a>
+
+        @if ($profile)
+            <div class="row align-items-center justify-content-center">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                <div class="col-6 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="{{ asset('storage/' . $profile->profile_image) }}"
+                            alt="Card image cap">
+                        <div class="card-body w-100">
+                            <h5 class="card-title d-flex align-items-center justify-content-between">
+                                <span>{{ $customer->name }}</span> <span>{{ $customer->email }}</span>
+                            </h5>
+                            <p class="card-text">{{ $profile->bio }}</p>
+                            <a href="{{ route('profile.create_edited') }}"
+                                class="btn btn-primary waves-effect waves-light">Edit</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="row align-items-center justify-content-center">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                <div class="col-6 col-lg-4 col-xl-4">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="{{ asset('dashboard') }}/assets/images/default.jpg"
+                            alt="Card image cap">
+                        <div class="card-body w-100">
+                            <h5 class="card-title d-flex align-items-center justify-content-between">
+                                <span>{{ $customer->name }}</span> <span>{{ $customer->email }}</span>
+                            </h5>
+                            <p class="card-text"> Add Your Data in Profile </p>
+                            <a href="{{ route('profile.create_edited') }}"
+                                class="btn btn-primary waves-effect waves-light">Create</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+
 
 
 
